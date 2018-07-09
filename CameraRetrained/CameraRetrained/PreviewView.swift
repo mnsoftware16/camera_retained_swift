@@ -23,6 +23,7 @@ class PreviewView: UIView {
         }
         set {
             videoPreviewLayer.session = newValue
+            videoPreviewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
         }
     }
     

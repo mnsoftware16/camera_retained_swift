@@ -24,7 +24,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
+        classificationLabel.text = "Initializing..."
         do {
             try setupCaptureSession()
             lastFrameDate = Date()
@@ -110,12 +111,11 @@ class ViewController: UIViewController {
             if classifications.isEmpty {
                 self.classificationLabel.text = "Nothing recognized."
             } else {
-                
-                let topClassifications = classifications.prefix(2)
+                let topClassifications = classifications.prefix(3)
                 let descriptions = topClassifications.map { classification in
                     return String(format: "  (%.2f) %@", classification.confidence, classification.identifier)
                 }
-                self.classificationLabel.text = "Classification:\n" + descriptions.joined(separator: "\n")
+                self.classificationLabel.text = descriptions.joined(separator: "\n")
             }
         }
     }

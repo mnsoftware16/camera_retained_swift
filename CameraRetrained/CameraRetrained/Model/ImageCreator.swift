@@ -31,7 +31,6 @@ struct ImageCreator {
         }
         let ciImage = CIImage(cvImageBuffer: imageBuffer)
         let cgImage = convertCIImageToCGImage(inputImage: ciImage)
-        //let rotatedImage = cgImage?.rotated(imageRef: cgImage, orientation: orientation)
         let croppedImage = cgImage?.croppToCenterSquare()
         let resizedImage = croppedImage?.resized(to: requiredSize)
         
@@ -46,9 +45,6 @@ struct ImageCreator {
         return nil
     }
 }
-
-
-
 
 extension CGImage {
     func resized(to newSize: CGSize) -> CGImage? {

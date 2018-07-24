@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D30F399F20E4FA99005CD9F8 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30F399E20E4FA99005CD9F8 /* PreviewView.swift */; };
-		D31148EC20F36A7600A3B6E7 /* CGImagePropertyOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31148EB20F36A7600A3B6E7 /* CGImagePropertyOrientation.swift */; };
 		D3412EFA20E2300C00E4FF78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3412EF920E2300C00E4FF78 /* AppDelegate.swift */; };
 		D3412EFC20E2300C00E4FF78 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3412EFB20E2300C00E4FF78 /* ViewController.swift */; };
 		D3412EFF20E2300C00E4FF78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3412EFD20E2300C00E4FF78 /* Main.storyboard */; };
@@ -40,7 +39,6 @@
 
 /* Begin PBXFileReference section */
 		D30F399E20E4FA99005CD9F8 /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
-		D31148EB20F36A7600A3B6E7 /* CGImagePropertyOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGImagePropertyOrientation.swift; sourceTree = "<group>"; };
 		D3412EF620E2300C00E4FF78 /* CameraRetrained.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CameraRetrained.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3412EF920E2300C00E4FF78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3412EFB20E2300C00E4FF78 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -148,7 +146,6 @@
 				D3EDABC62100946D0021B3F3 /* mlmodel */,
 				D3EDABC2210093E70021B3F3 /* MultiArrayType.swift */,
 				D3EDABC4210093FF0021B3F3 /* MultiArray.swift */,
-				D31148EB20F36A7600A3B6E7 /* CGImagePropertyOrientation.swift */,
 				D3EBDA262100955C00CF40CC /* ImageCreator.swift */,
 				D3D1E0EA2101B6C400E96397 /* CarTypePrediction.swift */,
 				D3D1E0EF2101BB9C00E96397 /* CarTypePredictionsProvider.swift */,
@@ -276,7 +273,6 @@
 				D3412EFC20E2300C00E4FF78 /* ViewController.swift in Sources */,
 				D3412EFA20E2300C00E4FF78 /* AppDelegate.swift in Sources */,
 				D3D1E0F02101BB9C00E96397 /* CarTypePredictionsProvider.swift in Sources */,
-				D31148EC20F36A7600A3B6E7 /* CGImagePropertyOrientation.swift in Sources */,
 				D3D1E0F42101C45C00E96397 /* CameraDeviceCoordinator.swift in Sources */,
 				D3D1E0EB2101B6C400E96397 /* CarTypePrediction.swift in Sources */,
 				D3D1E0F62101C7A000E96397 /* CameraDeviceCoordinatorError.swift in Sources */,

@@ -15,7 +15,6 @@ import AVFoundation
 class ViewController: UIViewController {
     @IBOutlet private weak var cameraPreviewView: PreviewView!
     @IBOutlet private weak var predictionsTableContainerView: UIView!
-    @IBOutlet private weak var predictionAreaView: UIView!
     @IBOutlet private weak var takePictureButton: UIButton!
     
     private var lastFrameDate: Date?
@@ -63,17 +62,17 @@ class ViewController: UIViewController {
         let imageSize = appParameters.imageSizeForPrediction
         let multiplier = imageSize.width / imageSize.height
         let aspectConstraint = NSLayoutConstraint(
-            item: predictionAreaView,
+            item: cameraPreviewView,
             attribute: .width,
             relatedBy: .equal,
-            toItem: predictionAreaView,
+            toItem: cameraPreviewView,
             attribute: .height,
             multiplier: multiplier,
             constant: 0
         )
-        predictionAreaView.addConstraint(aspectConstraint)
+        cameraPreviewView.addConstraint(aspectConstraint)
         NSLayoutConstraint.activate([aspectConstraint])
-        predictionAreaView.layoutIfNeeded()
+        cameraPreviewView.layoutIfNeeded()
     }
     
     private func preparePredictionsTableViewController() {

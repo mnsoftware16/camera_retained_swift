@@ -17,65 +17,70 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tfa-ub-84E" customClass="PreviewView" customModule="CameraRetrained" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tfa-ub-84E" customClass="PreviewView" customModule="CameraRetrained" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="145" width="375" height="397"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="397" placeholder="YES" id="ZwN-3s-P9y"/>
+                                </constraints>
                             </view>
                             <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="Wnx-Hh-1lH">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hiH-sr-etX">
-                                <rect key="frame" x="0.0" y="293.5" width="375" height="100"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sgz-sF-nKr">
+                                <rect key="frame" x="0.0" y="537" width="375" height="120"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QnL-g4-toA">
+                                        <rect key="frame" x="10" y="75" width="355" height="45"/>
+                                        <color key="backgroundColor" white="0.14999999999999999" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="L31-v3-Rk2"/>
+                                            <constraint firstAttribute="height" constant="45" id="fDe-yP-MzG"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
+                                        <state key="normal" title="Stopklatka">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="takePictureButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7MP-Od-ut6"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" placeholder="YES" id="USN-A9-PGw"/>
+                                    <constraint firstItem="QnL-g4-toA" firstAttribute="leading" secondItem="sgz-sF-nKr" secondAttribute="leading" constant="10" id="CL7-G0-DqF"/>
+                                    <constraint firstAttribute="height" constant="120" id="Smy-Uj-eis"/>
+                                    <constraint firstAttribute="bottom" secondItem="QnL-g4-toA" secondAttribute="bottom" id="p7g-jj-A0d"/>
+                                    <constraint firstAttribute="trailing" secondItem="QnL-g4-toA" secondAttribute="trailing" constant="10" id="rx0-1t-ZgO"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QnL-g4-toA">
-                                <rect key="frame" x="10" y="612" width="355" height="45"/>
-                                <color key="backgroundColor" white="0.14999999999999999" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="fDe-yP-MzG"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
-                                <state key="normal" title="Stopklatka">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="takePictureButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7MP-Od-ut6"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QnL-g4-toA" secondAttribute="trailing" constant="10" id="9KT-zk-suz"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Wnx-Hh-1lH" secondAttribute="bottom" id="CQm-XF-ofp"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hiH-sr-etX" secondAttribute="trailing" id="D7J-oe-mna"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="QnL-g4-toA" secondAttribute="bottom" constant="10" id="DtL-ea-Vev"/>
-                            <constraint firstItem="hiH-sr-etX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ek3-uo-kmG"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Tfa-ub-84E" secondAttribute="bottom" id="KW6-XY-aOg"/>
-                            <constraint firstItem="hiH-sr-etX" firstAttribute="centerY" secondItem="Wnx-Hh-1lH" secondAttribute="centerY" id="MqF-UB-Qy1"/>
+                            <constraint firstItem="sgz-sF-nKr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LUM-na-qbX"/>
+                            <constraint firstItem="Tfa-ub-84E" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Qxe-Le-vR1"/>
+                            <constraint firstItem="sgz-sF-nKr" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="VFj-bf-X15"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Wnx-Hh-1lH" secondAttribute="trailing" id="byq-fC-SdB"/>
                             <constraint firstItem="Wnx-Hh-1lH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="cOc-Dt-bLW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="sgz-sF-nKr" secondAttribute="bottom" constant="10" id="cPv-AI-Z7O"/>
                             <constraint firstItem="Wnx-Hh-1lH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cor-CU-DRc"/>
                             <constraint firstItem="Tfa-ub-84E" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dDm-Xp-xP6"/>
                             <constraint firstItem="Tfa-ub-84E" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="eTi-6y-Xls"/>
-                            <constraint firstItem="QnL-g4-toA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="gJy-Bn-ddh"/>
-                            <constraint firstItem="Tfa-ub-84E" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-20" id="tbu-yQ-Y67"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="cameraPreviewView" destination="Tfa-ub-84E" id="x6T-uo-p4I"/>
-                        <outlet property="predictionAreaView" destination="hiH-sr-etX" id="hWW-H5-623"/>
                         <outlet property="predictionsTableContainerView" destination="Wnx-Hh-1lH" id="8s2-1B-adE"/>
                         <outlet property="takePictureButton" destination="QnL-g4-toA" id="1Js-8c-sUH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="33.733133433283363"/>
         </scene>
     </scenes>
 </document>

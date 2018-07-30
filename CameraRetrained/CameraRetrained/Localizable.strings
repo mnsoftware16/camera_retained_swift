@@ -8,3 +8,4 @@
 
 "PAUSE_PREVIEW" = "Stopklatka";
 "RESUME_PREVIEW" = "Kontynuuj";
+"INFERENCE_TIME" = "Czas wnioskowania: %0.2fs";

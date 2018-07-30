@@ -31,29 +31,40 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sgz-sF-nKr">
                                 <rect key="frame" x="0.0" y="537" width="375" height="120"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QnL-g4-toA">
-                                        <rect key="frame" x="10" y="75" width="355" height="45"/>
-                                        <color key="backgroundColor" white="0.14999999999999999" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="L31-v3-Rk2"/>
-                                            <constraint firstAttribute="height" constant="45" id="fDe-yP-MzG"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
-                                        <state key="normal" title="Stopklatka">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="takePictureButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7MP-Od-ut6"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dy1-Zt-Szl">
+                                        <rect key="frame" x="10" y="0.0" width="355" height="120"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_Czas wnioskowania: &lt;runTime&gt;_" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0wX-cN-s7f">
+                                                <rect key="frame" x="0.0" y="0.0" width="355" height="65"/>
+                                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
+                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QnL-g4-toA">
+                                                <rect key="frame" x="0.0" y="75" width="355" height="45"/>
+                                                <color key="backgroundColor" white="0.14999999999999999" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="45" id="fDe-yP-MzG"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
+                                                <state key="normal" title="_Stopklatka_">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="takePictureButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7MP-Od-ut6"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="QnL-g4-toA" firstAttribute="leading" secondItem="sgz-sF-nKr" secondAttribute="leading" constant="10" id="CL7-G0-DqF"/>
+                                    <constraint firstAttribute="bottom" secondItem="dy1-Zt-Szl" secondAttribute="bottom" id="88T-pV-tGL"/>
+                                    <constraint firstItem="dy1-Zt-Szl" firstAttribute="top" secondItem="sgz-sF-nKr" secondAttribute="top" id="BUx-4h-svF"/>
                                     <constraint firstAttribute="height" constant="120" id="Smy-Uj-eis"/>
-                                    <constraint firstAttribute="bottom" secondItem="QnL-g4-toA" secondAttribute="bottom" id="p7g-jj-A0d"/>
-                                    <constraint firstAttribute="trailing" secondItem="QnL-g4-toA" secondAttribute="trailing" constant="10" id="rx0-1t-ZgO"/>
+                                    <constraint firstItem="dy1-Zt-Szl" firstAttribute="leading" secondItem="sgz-sF-nKr" secondAttribute="leading" constant="10" id="Yyk-CT-Din"/>
+                                    <constraint firstAttribute="trailing" secondItem="dy1-Zt-Szl" secondAttribute="trailing" constant="10" id="vva-NS-f4Z"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -74,6 +85,7 @@
                     </view>
                     <connections>
                         <outlet property="cameraPreviewView" destination="Tfa-ub-84E" id="x6T-uo-p4I"/>
+                        <outlet property="inferenceTimeLabel" destination="0wX-cN-s7f" id="QZG-Dv-Ug3"/>
                         <outlet property="predictionsTableContainerView" destination="Wnx-Hh-1lH" id="8s2-1B-adE"/>
                         <outlet property="takePictureButton" destination="QnL-g4-toA" id="1Js-8c-sUH"/>
                     </connections>

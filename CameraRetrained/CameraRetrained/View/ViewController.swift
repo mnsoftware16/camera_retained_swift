@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet private weak var cameraPreviewView: PreviewView!
     @IBOutlet private weak var predictionsTableContainerView: UIView!
     @IBOutlet private weak var takePictureButton: UIButton!
+    @IBOutlet weak var inferenceTimeLabel: UILabel!
     
     private var lastFrameDate: Date?
     private let appParameters = AppParameters.defaultParameters()
@@ -127,7 +128,9 @@ extension ViewController {
         DispatchQueue.global(qos: .userInitiated).async {
             do {
                 let model = self.appParameters.model
+                let startDate = Date()
                 let output = try model.prediction(_0: image.getPixelBuffer()!)
+                let inferenceTime = -startDate.timeIntervalSinceNow
                 
                 let provider = CarTypePredictionsProvider()
                 if let carTypePredictions = try? provider.providePredictionsFromModelPredictionOutput(output: output) {
@@ -140,12 +143,18 @@ extension ViewController {
                     
                     DispatchQueue.main.async {
                         self.predictionsTableViewController?.predictions = processedPredictions
+                        self.updateInferenceTimeLabel(with: inferenceTime)
                     }
                 }
             } catch {
                 self.presentAlert(withTitle: "Error", message: error.localizedDescription)
             }
         }
+    }
+    
+    private func updateInferenceTimeLabel(with inferenceTime: Double) {
+        let localizedString = NSLocalizedString("INFERENCE_TIME", comment: "")
+        inferenceTimeLabel.text = String(format: localizedString, inferenceTime)
     }
 }
 

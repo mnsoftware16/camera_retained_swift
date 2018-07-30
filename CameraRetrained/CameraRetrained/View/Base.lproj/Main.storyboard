@@ -32,11 +32,28 @@
                                     <constraint firstAttribute="height" constant="100" placeholder="YES" id="USN-A9-PGw"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QnL-g4-toA">
+                                <rect key="frame" x="10" y="612" width="355" height="45"/>
+                                <color key="backgroundColor" white="0.14999999999999999" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="fDe-yP-MzG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
+                                <state key="normal" title="Stopklatka">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="takePictureButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7MP-Od-ut6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QnL-g4-toA" secondAttribute="trailing" constant="10" id="9KT-zk-suz"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Wnx-Hh-1lH" secondAttribute="bottom" id="CQm-XF-ofp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hiH-sr-etX" secondAttribute="trailing" id="D7J-oe-mna"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="QnL-g4-toA" secondAttribute="bottom" constant="10" id="DtL-ea-Vev"/>
                             <constraint firstItem="hiH-sr-etX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ek3-uo-kmG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Tfa-ub-84E" secondAttribute="bottom" id="KW6-XY-aOg"/>
                             <constraint firstItem="hiH-sr-etX" firstAttribute="centerY" secondItem="Wnx-Hh-1lH" secondAttribute="centerY" id="MqF-UB-Qy1"/>
@@ -45,6 +62,7 @@
                             <constraint firstItem="Wnx-Hh-1lH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cor-CU-DRc"/>
                             <constraint firstItem="Tfa-ub-84E" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dDm-Xp-xP6"/>
                             <constraint firstItem="Tfa-ub-84E" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="eTi-6y-Xls"/>
+                            <constraint firstItem="QnL-g4-toA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="gJy-Bn-ddh"/>
                             <constraint firstItem="Tfa-ub-84E" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-20" id="tbu-yQ-Y67"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -53,6 +71,7 @@
                         <outlet property="cameraPreviewView" destination="Tfa-ub-84E" id="x6T-uo-p4I"/>
                         <outlet property="predictionAreaView" destination="hiH-sr-etX" id="hWW-H5-623"/>
                         <outlet property="predictionsTableContainerView" destination="Wnx-Hh-1lH" id="8s2-1B-adE"/>
+                        <outlet property="takePictureButton" destination="QnL-g4-toA" id="1Js-8c-sUH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -12,6 +12,10 @@ import AVFoundation
 class CameraDeviceCoordinator: NSObject {
     weak var outputSampleBufferDelegate: AVCaptureVideoDataOutputSampleBufferDelegate?
     
+    var isCameraRunning: Bool {
+        return captureSession.isRunning
+    }
+    
     private weak var cameraPreviewView: PreviewView?
     private let captureSession = AVCaptureSession()
     private var captureDevice: AVCaptureDevice?
@@ -44,11 +48,11 @@ class CameraDeviceCoordinator: NSObject {
         captureSession.addOutput(videoOutput)
     }
     
-    func startRunning() {
+    func startCameraRunning() {
         captureSession.startRunning()
     }
     
-    func stopRunning() {
+    func stopCameraRunning() {
         captureSession.stopRunning()
     }
 }

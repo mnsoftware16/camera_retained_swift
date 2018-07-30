@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet private weak var cameraPreviewView: PreviewView!
     @IBOutlet private weak var predictionsTableContainerView: UIView!
     @IBOutlet private weak var predictionAreaView: UIView!
+    @IBOutlet private weak var takePictureButton: UIButton!
     
     private var lastFrameDate: Date?
     private let appParameters = AppParameters.defaultParameters()
@@ -23,14 +24,27 @@ class ViewController: UIViewController {
     
     private var predictionsTableViewController: PredictionsViewController?
     
+    @IBAction func takePictureButtonAction(_ sender: Any) {
+        let isCameraRunning = cameraDeviceCoordinator?.isCameraRunning ?? false
+        updateTakePictureButtonTitle(isCameraRunning: !isCameraRunning)
+
+        if isCameraRunning {
+            cameraDeviceCoordinator?.stopCameraRunning()
+        } else {
+            cameraDeviceCoordinator?.startCameraRunning()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
         registerApplicationStateObservers()
         preparePredictionsTableViewController()
         preparePredictionAreaView()
-        lastFrameDate = Date()
         prepareCameraDeviceCoordinator()
+        updateTakePictureButtonTitle(isCameraRunning: true)
+        
+        lastFrameDate = Date()
     }
     
     private func prepareCameraDeviceCoordinator() {
@@ -38,7 +52,7 @@ class ViewController: UIViewController {
             let cameraDeviceCoordinator = CameraDeviceCoordinator()
             cameraDeviceCoordinator.outputSampleBufferDelegate = self
             try cameraDeviceCoordinator.setup(for: cameraPreviewView)
-            cameraDeviceCoordinator.startRunning()
+            cameraDeviceCoordinator.startCameraRunning()
             self.cameraDeviceCoordinator = cameraDeviceCoordinator
         } catch {
             presentAlert(withTitle: "Error", message: error.localizedDescription)
@@ -71,6 +85,12 @@ class ViewController: UIViewController {
         
         predictionsTableContainerView.addSubview(view)
         self.predictionsTableViewController = predictionsTableViewController
+    }
+    
+    private func updateTakePictureButtonTitle(isCameraRunning: Bool) {
+        let titleKey = isCameraRunning ? "PAUSE_PREVIEW" : "RESUME_PREVIEW"
+        let title = NSLocalizedString(titleKey, comment: "")
+        takePictureButton.setTitle(title, for: .normal)
     }
     
     private func presentAlert(withTitle title: String? = nil, message: String? = nil) {
@@ -149,10 +169,10 @@ extension ViewController {
     }
     
     @objc private func applicationDidEnterForeground() {
-        cameraDeviceCoordinator?.stopRunning()
+        cameraDeviceCoordinator?.stopCameraRunning()
     }
     
     @objc private func applicationDidEnterBackground() {
-        cameraDeviceCoordinator?.startRunning()
+        cameraDeviceCoordinator?.startCameraRunning()
     }
 }

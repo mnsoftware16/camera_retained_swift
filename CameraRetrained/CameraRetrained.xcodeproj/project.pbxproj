@@ -13,6 +13,7 @@
 		D31F44B3210F02DE004848D2 /* PredictionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31F44B1210F02DE004848D2 /* PredictionCell.xib */; };
 		D31F44B9210F12CD004848D2 /* PredictionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31F44B8210F12CD004848D2 /* PredictionsViewController.xib */; };
 		D31F44BB210F260C004848D2 /* AppParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31F44BA210F260C004848D2 /* AppParameters.swift */; };
+		D31F44BD210F3549004848D2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D31F44BC210F3549004848D2 /* Localizable.strings */; };
 		D3412EFA20E2300C00E4FF78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3412EF920E2300C00E4FF78 /* AppDelegate.swift */; };
 		D3412EFC20E2300C00E4FF78 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3412EFB20E2300C00E4FF78 /* ViewController.swift */; };
 		D3412EFF20E2300C00E4FF78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3412EFD20E2300C00E4FF78 /* Main.storyboard */; };
@@ -49,6 +50,7 @@
 		D31F44B1210F02DE004848D2 /* PredictionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PredictionCell.xib; sourceTree = "<group>"; };
 		D31F44B8210F12CD004848D2 /* PredictionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PredictionsViewController.xib; sourceTree = "<group>"; };
 		D31F44BA210F260C004848D2 /* AppParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppParameters.swift; sourceTree = "<group>"; };
+		D31F44BC210F3549004848D2 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		D3412EF620E2300C00E4FF78 /* CameraRetrained.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CameraRetrained.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3412EF920E2300C00E4FF78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3412EFB20E2300C00E4FF78 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				D3412EF920E2300C00E4FF78 /* AppDelegate.swift */,
 				D3412F0020E2300D00E4FF78 /* Assets.xcassets */,
 				D3412F0520E2300D00E4FF78 /* Info.plist */,
+				D31F44BC210F3549004848D2 /* Localizable.strings */,
 			);
 			path = CameraRetrained;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				D3412F0420E2300D00E4FF78 /* LaunchScreen.storyboard in Resources */,
 				D3412F0120E2300D00E4FF78 /* Assets.xcassets in Resources */,
 				D3412EFF20E2300C00E4FF78 /* Main.storyboard in Resources */,
+				D31F44BD210F3549004848D2 /* Localizable.strings in Resources */,
 				D31F44B9210F12CD004848D2 /* PredictionsViewController.xib in Resources */,
 				D3D1E0F92101D91300E96397 /* old_polish_cars_resnet50_95acc_classes.txt in Resources */,
 				D31F44B3210F02DE004848D2 /* PredictionCell.xib in Resources */,

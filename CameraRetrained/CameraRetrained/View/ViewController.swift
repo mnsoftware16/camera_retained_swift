@@ -14,30 +14,46 @@ import AVFoundation
 
 class ViewController: UIViewController {
     @IBOutlet private weak var cameraPreviewView: PreviewView!
-    @IBOutlet private weak var classificationLabel: UILabel!
-
+    @IBOutlet weak var predictionsTableContainerView: UIView!
+    
     private var lastFrameDate: Date?
     private let predictionTimeInterval: TimeInterval = 0.2
     private var cameraDeviceCoordinator: CameraDeviceCoordinator?
     private let model = old_polish_cars_resnet50_95acc()
     
+    private var predictionsTableViewController: PredictionsViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        classificationLabel.text = "Initializing..."
+        preparePredictionsTableViewController()
+        lastFrameDate = Date()
         do {
-            let cameraDeviceCoordinator = CameraDeviceCoordinator()
-            cameraDeviceCoordinator.outputSampleBufferDelegate = self
-            try cameraDeviceCoordinator.setup(for: cameraPreviewView)
-            self.cameraDeviceCoordinator = cameraDeviceCoordinator
-            
-            lastFrameDate = Date()
+            try prepareCameraDeviceCoordinator()
         } catch {
             presentAlert(withTitle: "Error", message: error.localizedDescription)
         }
     }
     
-    func presentAlert(withTitle title: String? = nil, message: String? = nil) {
+    private func prepareCameraDeviceCoordinator() throws {
+        let cameraDeviceCoordinator = CameraDeviceCoordinator()
+        cameraDeviceCoordinator.outputSampleBufferDelegate = self
+        try cameraDeviceCoordinator.setup(for: cameraPreviewView)
+        self.cameraDeviceCoordinator = cameraDeviceCoordinator
+    }
+    
+    private func preparePredictionsTableViewController() {
+        let predictionsTableViewController = PredictionsViewController.create()
+        
+        let view: UIView = predictionsTableViewController.view
+        view.frame = predictionsTableContainerView.bounds
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        predictionsTableContainerView.addSubview(view)
+        self.predictionsTableViewController = predictionsTableViewController
+    }
+    
+    private func presentAlert(withTitle title: String? = nil, message: String? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(okAction)
@@ -74,12 +90,15 @@ extension ViewController {
                 
                 let provider = CarTypePredictionsProvider()
                 if let carTypePredictions = try? provider.providePredictionsFromModelPredictionOutput(output: output) {
-                    
                     let predictionsProcessor = CarTypePredictionsProcessor()
-                    let text = predictionsProcessor.processPredictions(predictions: carTypePredictions)
+                    let processedPredictions = predictionsProcessor.getTopPredictions(
+                        from: carTypePredictions,
+                        minPredictionValue: 10.0,
+                        maxCount: 3
+                    )
                     
                     DispatchQueue.main.async {
-                        self.classificationLabel.text = text
+                        self.predictionsTableViewController?.predictions = processedPredictions
                     }
                 }
             } catch {

@@ -12,6 +12,7 @@
 		D31F44B2210F02DE004848D2 /* PredictionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31F44B0210F02DE004848D2 /* PredictionCell.swift */; };
 		D31F44B3210F02DE004848D2 /* PredictionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31F44B1210F02DE004848D2 /* PredictionCell.xib */; };
 		D31F44B9210F12CD004848D2 /* PredictionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31F44B8210F12CD004848D2 /* PredictionsViewController.xib */; };
+		D31F44BB210F260C004848D2 /* AppParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31F44BA210F260C004848D2 /* AppParameters.swift */; };
 		D3412EFA20E2300C00E4FF78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3412EF920E2300C00E4FF78 /* AppDelegate.swift */; };
 		D3412EFC20E2300C00E4FF78 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3412EFB20E2300C00E4FF78 /* ViewController.swift */; };
 		D3412EFF20E2300C00E4FF78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3412EFD20E2300C00E4FF78 /* Main.storyboard */; };
@@ -47,6 +48,7 @@
 		D31F44B0210F02DE004848D2 /* PredictionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionCell.swift; sourceTree = "<group>"; };
 		D31F44B1210F02DE004848D2 /* PredictionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PredictionCell.xib; sourceTree = "<group>"; };
 		D31F44B8210F12CD004848D2 /* PredictionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PredictionsViewController.xib; sourceTree = "<group>"; };
+		D31F44BA210F260C004848D2 /* AppParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppParameters.swift; sourceTree = "<group>"; };
 		D3412EF620E2300C00E4FF78 /* CameraRetrained.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CameraRetrained.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3412EF920E2300C00E4FF78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3412EFB20E2300C00E4FF78 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 			children = (
 				D3D1E0EE2101BB7700E96397 /* Errors */,
 				D3EDABC62100946D0021B3F3 /* mlmodel */,
+				D31F44BA210F260C004848D2 /* AppParameters.swift */,
 				D3EDABC2210093E70021B3F3 /* MultiArrayType.swift */,
 				D3EDABC4210093FF0021B3F3 /* MultiArray.swift */,
 				D3EBDA262100955C00CF40CC /* ImageCreator.swift */,
@@ -283,6 +286,7 @@
 				D3D1E0F22101C2B100E96397 /* CarTypePredictionsProcessor.swift in Sources */,
 				D31F44AF210F0299004848D2 /* PredictionsViewController.swift in Sources */,
 				D3EDABC3210093E70021B3F3 /* MultiArrayType.swift in Sources */,
+				D31F44BB210F260C004848D2 /* AppParameters.swift in Sources */,
 				D3609DC020FC750A006DCECF /* old_polish_cars_resnet50_95acc.mlmodel in Sources */,
 				D3EBDA272100955C00CF40CC /* ImageCreator.swift in Sources */,
 				D3412EFC20E2300C00E4FF78 /* ViewController.swift in Sources */,

@@ -14,12 +14,12 @@ import AVFoundation
 
 class ViewController: UIViewController {
     @IBOutlet private weak var cameraPreviewView: PreviewView!
-    @IBOutlet weak var predictionsTableContainerView: UIView!
+    @IBOutlet private weak var predictionsTableContainerView: UIView!
+    @IBOutlet private weak var predictionAreaView: UIView!
     
     private var lastFrameDate: Date?
-    private let predictionTimeInterval: TimeInterval = 0.2
+    private let appParameters = AppParameters.defaultParameters()
     private var cameraDeviceCoordinator: CameraDeviceCoordinator?
-    private let model = old_polish_cars_resnet50_95acc()
     
     private var predictionsTableViewController: PredictionsViewController?
     
@@ -27,6 +27,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     
         preparePredictionsTableViewController()
+        preparePredictionAreaView()
         lastFrameDate = Date()
         do {
             try prepareCameraDeviceCoordinator()
@@ -40,6 +41,23 @@ class ViewController: UIViewController {
         cameraDeviceCoordinator.outputSampleBufferDelegate = self
         try cameraDeviceCoordinator.setup(for: cameraPreviewView)
         self.cameraDeviceCoordinator = cameraDeviceCoordinator
+    }
+    
+    private func preparePredictionAreaView() {
+        let imageSize = appParameters.imageSizeForPrediction
+        let multiplier = imageSize.width / imageSize.height
+        let aspectConstraint = NSLayoutConstraint(
+            item: predictionAreaView,
+            attribute: .width,
+            relatedBy: .equal,
+            toItem: predictionAreaView,
+            attribute: .height,
+            multiplier: multiplier,
+            constant: 0
+        )
+        predictionAreaView.addConstraint(aspectConstraint)
+        NSLayoutConstraint.activate([aspectConstraint])
+        predictionAreaView.layoutIfNeeded()
     }
     
     private func preparePredictionsTableViewController() {
@@ -66,13 +84,14 @@ extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         connection.videoOrientation = .portrait
 
         let currentDate = Date()
+        let predictionTimeInterval = appParameters.predictionTimeInterval
         if currentDate.timeIntervalSince(lastFrameDate!) > predictionTimeInterval {
             lastFrameDate = currentDate
             
             let imageCreator = ImageCreator(
                 imageSampleBuffer: sampleBuffer,
                 orientation: connection.videoOrientation,
-                requiredSize: CGSize(width: 224, height: 224)
+                requiredSize: appParameters.imageSizeForPrediction
             )
             if let image = imageCreator.createImage() {
                 updateClassifications(for: image)
@@ -86,15 +105,16 @@ extension ViewController {
     func updateClassifications(for image: CGImage) {
         DispatchQueue.global(qos: .userInitiated).async {
             do {
-                let output = try self.model.prediction(_0: image.getPixelBuffer()!)
+                let model = self.appParameters.model
+                let output = try model.prediction(_0: image.getPixelBuffer()!)
                 
                 let provider = CarTypePredictionsProvider()
                 if let carTypePredictions = try? provider.providePredictionsFromModelPredictionOutput(output: output) {
                     let predictionsProcessor = CarTypePredictionsProcessor()
                     let processedPredictions = predictionsProcessor.getTopPredictions(
                         from: carTypePredictions,
-                        minPredictionValue: 10.0,
-                        maxCount: 3
+                        minPredictionValue: self.appParameters.minPredictionValue,
+                        maxCount: self.appParameters.maxPredictionsCount
                     )
                     
                     DispatchQueue.main.async {

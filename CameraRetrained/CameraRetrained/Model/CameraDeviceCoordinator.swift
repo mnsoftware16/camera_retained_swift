@@ -36,12 +36,19 @@ class CameraDeviceCoordinator: NSObject {
         let captureDeviceInput = try AVCaptureDeviceInput(device: captureDevice)
         captureSession.addInput(captureDeviceInput)
         captureSession.sessionPreset = .photo
-        captureSession.startRunning()
         
         let videoOutput = AVCaptureVideoDataOutput()
         videoOutput.alwaysDiscardsLateVideoFrames = true
         videoOutput.setSampleBufferDelegate(outputSampleBufferDelegate, queue: DispatchQueue(label: "sample buffer"))
         guard self.captureSession.canAddOutput(videoOutput) else { return }
         captureSession.addOutput(videoOutput)
+    }
+    
+    func startRunning() {
+        captureSession.startRunning()
+    }
+    
+    func stopRunning() {
+        captureSession.stopRunning()
     }
 }

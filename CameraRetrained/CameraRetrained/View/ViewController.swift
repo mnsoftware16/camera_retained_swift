@@ -26,21 +26,23 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        registerApplicationStateObservers()
         preparePredictionsTableViewController()
         preparePredictionAreaView()
         lastFrameDate = Date()
+        prepareCameraDeviceCoordinator()
+    }
+    
+    private func prepareCameraDeviceCoordinator() {
         do {
-            try prepareCameraDeviceCoordinator()
+            let cameraDeviceCoordinator = CameraDeviceCoordinator()
+            cameraDeviceCoordinator.outputSampleBufferDelegate = self
+            try cameraDeviceCoordinator.setup(for: cameraPreviewView)
+            cameraDeviceCoordinator.startRunning()
+            self.cameraDeviceCoordinator = cameraDeviceCoordinator
         } catch {
             presentAlert(withTitle: "Error", message: error.localizedDescription)
         }
-    }
-    
-    private func prepareCameraDeviceCoordinator() throws {
-        let cameraDeviceCoordinator = CameraDeviceCoordinator()
-        cameraDeviceCoordinator.outputSampleBufferDelegate = self
-        try cameraDeviceCoordinator.setup(for: cameraPreviewView)
-        self.cameraDeviceCoordinator = cameraDeviceCoordinator
     }
     
     private func preparePredictionAreaView() {
@@ -125,5 +127,32 @@ extension ViewController {
                 self.presentAlert(withTitle: "Error", message: error.localizedDescription)
             }
         }
+    }
+}
+
+// MARK: - Application state observation
+extension ViewController {
+    private func registerApplicationStateObservers() {
+        NotificationCenter.default.addObserver(
+            self, selector:
+            #selector(applicationDidEnterForeground),
+            name: .UIApplicationDidEnterBackground,
+            object: nil
+        )
+        
+        NotificationCenter.default.addObserver(
+            self, selector:
+            #selector(applicationDidEnterBackground),
+            name: .UIApplicationWillEnterForeground,
+            object: nil
+        )
+    }
+    
+    @objc private func applicationDidEnterForeground() {
+        cameraDeviceCoordinator?.stopRunning()
+    }
+    
+    @objc private func applicationDidEnterBackground() {
+        cameraDeviceCoordinator?.startRunning()
     }
 }

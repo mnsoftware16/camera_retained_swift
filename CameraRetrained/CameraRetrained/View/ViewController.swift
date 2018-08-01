@@ -43,7 +43,8 @@ class ViewController: UIViewController {
         preparePredictionAreaView()
         prepareCameraDeviceCoordinator()
         updateTakePictureButtonTitle(isCameraRunning: true)
-        
+        updateInferenceTimeLabel(with: 0.0)
+
         lastFrameDate = Date()
     }
     
@@ -91,6 +92,11 @@ class ViewController: UIViewController {
         let titleKey = isCameraRunning ? "PAUSE_PREVIEW" : "RESUME_PREVIEW"
         let title = NSLocalizedString(titleKey, comment: "")
         takePictureButton.setTitle(title, for: .normal)
+    }
+    
+    private func updateInferenceTimeLabel(with inferenceTime: Double) {
+        let localizedString = NSLocalizedString("INFERENCE_TIME", comment: "")
+        inferenceTimeLabel.text = String(format: localizedString, inferenceTime)
     }
     
     private func presentAlert(withTitle title: String? = nil, message: String? = nil) {
@@ -150,11 +156,6 @@ extension ViewController {
                 self.presentAlert(withTitle: "Error", message: error.localizedDescription)
             }
         }
-    }
-    
-    private func updateInferenceTimeLabel(with inferenceTime: Double) {
-        let localizedString = NSLocalizedString("INFERENCE_TIME", comment: "")
-        inferenceTimeLabel.text = String(format: localizedString, inferenceTime)
     }
 }
 

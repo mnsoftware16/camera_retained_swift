@@ -7,18 +7,23 @@
 //
 
 import Foundation
+import CoreGraphics.CGImage
 
-struct CarTypePredictionsProvider {
+struct CarTypePredictionsCustomProvider: CarTypePredictionsProvider {
     let carTypesFileName: String
+    let model = old_polish_cars_resnet50_95acc()
     
     init(carTypesFileName: String = "old_polish_cars_resnet50_95acc_classes"
         ) {
         self.carTypesFileName = carTypesFileName
     }
     
-    func providePredictionsFromModelPredictionOutput(output: old_polish_cars_resnet50_95accOutput) throws -> [CarTypePrediction] {
+    func providePredictionsFromImage(image: CGImage, completion: Completion?) throws {
+        let output = try model.prediction(_0: image.getPixelBuffer()!)
         let predictions = getPredictionsFromOutput(output: output)
-        return try create(from: predictions)
+        let result = try create(from: predictions)
+        
+        completion?(result)
     }
     
     private func getPredictionsFromOutput(output: old_polish_cars_resnet50_95accOutput) -> [Float] {
@@ -33,7 +38,7 @@ struct CarTypePredictionsProvider {
         var predictionsArray = [Float]()
         for index in 0..<numberOfClasses {
             let value = multiArray[0, 0, index, 0, 0]
-            let prediction = exp(value)/sum * 100
+            let prediction = exp(value)/sum
             predictionsArray.append(prediction)
         }
         

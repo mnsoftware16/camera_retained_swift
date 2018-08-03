@@ -133,23 +133,23 @@ extension ViewController {
     func updateClassifications(for image: CGImage) {
         DispatchQueue.global(qos: .userInitiated).async {
             do {
-                let model = self.appParameters.model
+                let providerCoreML = CarTypePredictionsCoreMLProvider()
                 let startDate = Date()
-                let output = try model.prediction(_0: image.getPixelBuffer()!)
-                let inferenceTime = -startDate.timeIntervalSinceNow
-                
-                let provider = CarTypePredictionsProvider()
-                if let carTypePredictions = try? provider.providePredictionsFromModelPredictionOutput(output: output) {
-                    let predictionsProcessor = CarTypePredictionsProcessor()
-                    let processedPredictions = predictionsProcessor.getTopPredictions(
-                        from: carTypePredictions,
-                        minPredictionValue: self.appParameters.minPredictionValue,
-                        maxCount: self.appParameters.maxPredictionsCount
-                    )
+                try providerCoreML.providePredictionsFromImage(image: image) {
+                    let inferenceTime = -startDate.timeIntervalSinceNow
                     
-                    DispatchQueue.main.async {
-                        self.predictionsTableViewController?.predictions = processedPredictions
-                        self.updateInferenceTimeLabel(with: inferenceTime)
+                    if let carTypePredictions = $0 {
+                        let predictionsProcessor = CarTypePredictionsProcessor()
+                        let processedPredictions = predictionsProcessor.getTopPredictions(
+                            from: carTypePredictions,
+                            minPredictionValue: self.appParameters.minPredictionValue,
+                            maxCount: self.appParameters.maxPredictionsCount
+                        )
+                        
+                        DispatchQueue.main.async {
+                            self.predictionsTableViewController?.predictions = processedPredictions
+                            self.updateInferenceTimeLabel(with: inferenceTime)
+                        }
                     }
                 }
             } catch {

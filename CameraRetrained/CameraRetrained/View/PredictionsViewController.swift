@@ -49,7 +49,7 @@ extension PredictionsViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! PredictionCell
         
         if let prediction = _predictions?[indexPath.row] {
-            cell.percentValueLabel.text = String(format: "%0.2f%%", prediction.predictionValue)
+            cell.percentValueLabel.text = String(format: "%0.2f%%", prediction.predictionValue * 100)
             cell.predictionNameLabel.text = " \(prediction.carType)"
         }
         return cell

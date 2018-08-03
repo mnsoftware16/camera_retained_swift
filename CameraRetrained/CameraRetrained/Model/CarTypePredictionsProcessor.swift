@@ -16,8 +16,8 @@ struct CarTypePredictionsProcessor {
     
     func getTopPredictions(from predictions: [CarTypePrediction], minPredictionValue: Float, maxCount: Int) -> [CarTypePrediction] {
         let resultPredictions = predictions
-            .sorted { $0.predictionValue > $1.predictionValue }
             .filter { $0.predictionValue > minPredictionValue }
+            .sorted { $0.predictionValue > $1.predictionValue }
             .prefix(maxCount)
         
         return [CarTypePrediction](resultPredictions)

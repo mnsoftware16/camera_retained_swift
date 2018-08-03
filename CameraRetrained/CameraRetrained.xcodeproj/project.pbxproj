@@ -14,6 +14,7 @@
 		D31F44B9210F12CD004848D2 /* PredictionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31F44B8210F12CD004848D2 /* PredictionsViewController.xib */; };
 		D31F44BB210F260C004848D2 /* AppParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31F44BA210F260C004848D2 /* AppParameters.swift */; };
 		D31F44BD210F3549004848D2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D31F44BC210F3549004848D2 /* Localizable.strings */; };
+		D32C566F2111D9FE00717A64 /* CarTypePredictionsCoreMLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32C566E2111D9FE00717A64 /* CarTypePredictionsCoreMLProvider.swift */; };
 		D3412EFA20E2300C00E4FF78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3412EF920E2300C00E4FF78 /* AppDelegate.swift */; };
 		D3412EFC20E2300C00E4FF78 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3412EFB20E2300C00E4FF78 /* ViewController.swift */; };
 		D3412EFF20E2300C00E4FF78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3412EFD20E2300C00E4FF78 /* Main.storyboard */; };
@@ -21,9 +22,11 @@
 		D3412F0420E2300D00E4FF78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3412F0220E2300D00E4FF78 /* LaunchScreen.storyboard */; };
 		D3412F0F20E2300D00E4FF78 /* CameraRetrainedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3412F0E20E2300D00E4FF78 /* CameraRetrainedTests.swift */; };
 		D3609DC020FC750A006DCECF /* old_polish_cars_resnet50_95acc.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D3609DBF20FC750A006DCECF /* old_polish_cars_resnet50_95acc.mlmodel */; };
+		D38126492114534E00ADC893 /* CarTypePredictionsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38126482114534E00ADC893 /* CarTypePredictionsProvider.swift */; };
+		D381264F211454E800ADC893 /* old_polish_cars_93acc.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D381264E211454E800ADC893 /* old_polish_cars_93acc.mlmodel */; };
 		D3D1E0EB2101B6C400E96397 /* CarTypePrediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D1E0EA2101B6C400E96397 /* CarTypePrediction.swift */; };
 		D3D1E0ED2101B95200E96397 /* CarTypePredictionsCreatorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D1E0EC2101B95200E96397 /* CarTypePredictionsCreatorError.swift */; };
-		D3D1E0F02101BB9C00E96397 /* CarTypePredictionsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D1E0EF2101BB9C00E96397 /* CarTypePredictionsProvider.swift */; };
+		D3D1E0F02101BB9C00E96397 /* CarTypePredictionsCustomProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D1E0EF2101BB9C00E96397 /* CarTypePredictionsCustomProvider.swift */; };
 		D3D1E0F22101C2B100E96397 /* CarTypePredictionsProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D1E0F12101C2B100E96397 /* CarTypePredictionsProcessor.swift */; };
 		D3D1E0F42101C45C00E96397 /* CameraDeviceCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D1E0F32101C45C00E96397 /* CameraDeviceCoordinator.swift */; };
 		D3D1E0F62101C7A000E96397 /* CameraDeviceCoordinatorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D1E0F52101C7A000E96397 /* CameraDeviceCoordinatorError.swift */; };
@@ -51,6 +54,7 @@
 		D31F44B8210F12CD004848D2 /* PredictionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PredictionsViewController.xib; sourceTree = "<group>"; };
 		D31F44BA210F260C004848D2 /* AppParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppParameters.swift; sourceTree = "<group>"; };
 		D31F44BC210F3549004848D2 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		D32C566E2111D9FE00717A64 /* CarTypePredictionsCoreMLProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarTypePredictionsCoreMLProvider.swift; sourceTree = "<group>"; };
 		D3412EF620E2300C00E4FF78 /* CameraRetrained.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CameraRetrained.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3412EF920E2300C00E4FF78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3412EFB20E2300C00E4FF78 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,9 +66,11 @@
 		D3412F0E20E2300D00E4FF78 /* CameraRetrainedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraRetrainedTests.swift; sourceTree = "<group>"; };
 		D3412F1020E2300D00E4FF78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3609DBF20FC750A006DCECF /* old_polish_cars_resnet50_95acc.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = old_polish_cars_resnet50_95acc.mlmodel; sourceTree = "<group>"; };
+		D38126482114534E00ADC893 /* CarTypePredictionsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarTypePredictionsProvider.swift; sourceTree = "<group>"; };
+		D381264E211454E800ADC893 /* old_polish_cars_93acc.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = old_polish_cars_93acc.mlmodel; sourceTree = "<group>"; };
 		D3D1E0EA2101B6C400E96397 /* CarTypePrediction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarTypePrediction.swift; sourceTree = "<group>"; };
 		D3D1E0EC2101B95200E96397 /* CarTypePredictionsCreatorError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarTypePredictionsCreatorError.swift; sourceTree = "<group>"; };
-		D3D1E0EF2101BB9C00E96397 /* CarTypePredictionsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarTypePredictionsProvider.swift; sourceTree = "<group>"; };
+		D3D1E0EF2101BB9C00E96397 /* CarTypePredictionsCustomProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarTypePredictionsCustomProvider.swift; sourceTree = "<group>"; };
 		D3D1E0F12101C2B100E96397 /* CarTypePredictionsProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarTypePredictionsProcessor.swift; sourceTree = "<group>"; };
 		D3D1E0F32101C45C00E96397 /* CameraDeviceCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraDeviceCoordinator.swift; sourceTree = "<group>"; };
 		D3D1E0F52101C7A000E96397 /* CameraDeviceCoordinatorError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraDeviceCoordinatorError.swift; sourceTree = "<group>"; };
@@ -132,6 +138,16 @@
 			path = CameraRetrainedTests;
 			sourceTree = "<group>";
 		};
+		D38126472114533000ADC893 /* CarTypePredictionsProviders */ = {
+			isa = PBXGroup;
+			children = (
+				D38126482114534E00ADC893 /* CarTypePredictionsProvider.swift */,
+				D3D1E0EF2101BB9C00E96397 /* CarTypePredictionsCustomProvider.swift */,
+				D32C566E2111D9FE00717A64 /* CarTypePredictionsCoreMLProvider.swift */,
+			);
+			path = CarTypePredictionsProviders;
+			sourceTree = "<group>";
+		};
 		D3D1E0EE2101BB7700E96397 /* Errors */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +175,7 @@
 		D3EDABC1210093D50021B3F3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D38126472114533000ADC893 /* CarTypePredictionsProviders */,
 				D3D1E0EE2101BB7700E96397 /* Errors */,
 				D3EDABC62100946D0021B3F3 /* mlmodel */,
 				D31F44BA210F260C004848D2 /* AppParameters.swift */,
@@ -166,7 +183,6 @@
 				D3EDABC4210093FF0021B3F3 /* MultiArray.swift */,
 				D3EBDA262100955C00CF40CC /* ImageCreator.swift */,
 				D3D1E0EA2101B6C400E96397 /* CarTypePrediction.swift */,
-				D3D1E0EF2101BB9C00E96397 /* CarTypePredictionsProvider.swift */,
 				D3D1E0F12101C2B100E96397 /* CarTypePredictionsProcessor.swift */,
 				D3D1E0F32101C45C00E96397 /* CameraDeviceCoordinator.swift */,
 			);
@@ -176,6 +192,7 @@
 		D3EDABC62100946D0021B3F3 /* mlmodel */ = {
 			isa = PBXGroup;
 			children = (
+				D381264E211454E800ADC893 /* old_polish_cars_93acc.mlmodel */,
 				D3609DBF20FC750A006DCECF /* old_polish_cars_resnet50_95acc.mlmodel */,
 				D3D1E0F82101D91300E96397 /* old_polish_cars_resnet50_95acc_classes.txt */,
 			);
@@ -287,6 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D32C566F2111D9FE00717A64 /* CarTypePredictionsCoreMLProvider.swift in Sources */,
 				D3D1E0F22101C2B100E96397 /* CarTypePredictionsProcessor.swift in Sources */,
 				D31F44AF210F0299004848D2 /* PredictionsViewController.swift in Sources */,
 				D3EDABC3210093E70021B3F3 /* MultiArrayType.swift in Sources */,
@@ -296,13 +314,15 @@
 				D3412EFC20E2300C00E4FF78 /* ViewController.swift in Sources */,
 				D31F44B2210F02DE004848D2 /* PredictionCell.swift in Sources */,
 				D3412EFA20E2300C00E4FF78 /* AppDelegate.swift in Sources */,
-				D3D1E0F02101BB9C00E96397 /* CarTypePredictionsProvider.swift in Sources */,
+				D3D1E0F02101BB9C00E96397 /* CarTypePredictionsCustomProvider.swift in Sources */,
 				D3D1E0F42101C45C00E96397 /* CameraDeviceCoordinator.swift in Sources */,
 				D3D1E0EB2101B6C400E96397 /* CarTypePrediction.swift in Sources */,
 				D3D1E0F62101C7A000E96397 /* CameraDeviceCoordinatorError.swift in Sources */,
+				D381264F211454E800ADC893 /* old_polish_cars_93acc.mlmodel in Sources */,
 				D3D1E0ED2101B95200E96397 /* CarTypePredictionsCreatorError.swift in Sources */,
 				D3EDABC5210093FF0021B3F3 /* MultiArray.swift in Sources */,
 				D30F399F20E4FA99005CD9F8 /* PreviewView.swift in Sources */,
+				D38126492114534E00ADC893 /* CarTypePredictionsProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

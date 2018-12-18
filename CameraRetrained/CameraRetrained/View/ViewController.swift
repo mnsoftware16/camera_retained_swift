@@ -21,6 +21,9 @@ class ViewController: UIViewController {
     private var lastFrameDate: Date?
     private let appParameters = AppParameters.defaultParameters()
     private var cameraDeviceCoordinator: CameraDeviceCoordinator?
+    private lazy var predictionsProvider: CarTypePredictionsProvider = {
+        CarTypePredictionsCoreMLProvider()
+    }()
     
     private var predictionsTableViewController: PredictionsViewController?
     
@@ -133,9 +136,8 @@ extension ViewController {
     func updateClassifications(for image: CGImage) {
         DispatchQueue.global(qos: .userInitiated).async {
             do {
-                let providerCoreML = CarTypePredictionsCoreMLProvider()
                 let startDate = Date()
-                try providerCoreML.providePredictionsFromImage(image: image) {
+                try self.predictionsProvider.providePredictionsFromImage(image: image) {
                     let inferenceTime = -startDate.timeIntervalSinceNow
                     
                     if let carTypePredictions = $0 {
